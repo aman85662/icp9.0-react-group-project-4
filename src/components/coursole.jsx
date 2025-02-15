@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const carouselItems = [
@@ -36,42 +36,69 @@ const carouselItems = [
 
 function Carousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const itemsPerView = 3; // Adjust based on screen size or preference
 
   const prevSlide = () => {
-    setCurrentIndex((prev) => (prev === 0 ? carouselItems.length - 1 : prev - 1));
+    setCurrentIndex((prev) => (prev === 0 ? carouselItems.length - itemsPerView : prev - 1));
   };
 
   const nextSlide = () => {
-    setCurrentIndex((prev) => (prev === carouselItems.length - 1 ? 0 : prev + 1));
+    setCurrentIndex((prev) => (prev >= carouselItems.length - itemsPerView ? 0 : prev + 1));
   };
+
+  // Auto-slide feature using useEffect
+  useEffect(() => {
+    const interval = setInterval(nextSlide, 3000); // Auto slide every 3s (3000ms)
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="w-full flex flex-col items-center py-6">
-      <h2 className="text-lg md:text-xl font-semibold mb-4">Why Book With ixigo?</h2>
-      <div className="relative w-full max-w-6xl overflow-hidden">
-        <div className="flex transition-transform duration-500 ease-in-out"
-          style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+      <h2 className="text-2xl font-bold mb-6 text-gray-800">Why Book With ixigo?</h2>
+      <div className="relative w-full max-w-5xl overflow-hidden">
+        {/* Carousel Items */}
+        <div
+          className="flex transition-transform duration-700 ease-in-out"
+          style={{ transform: `translateX(-${currentIndex * (100 / itemsPerView)}%)` }}
+        >
           {carouselItems.map((item, index) => (
             <div
               key={index}
-              className={`flex flex-shrink-0 w-full md:w-1/3 lg:w-1/4 xl:w-1/5 p-4 ${item.bgColor} rounded-lg shadow-md flex-col items-center justify-center text-center mx-2`}
+              className={`flex flex-shrink-0 w-1/${itemsPerView} p-6 ${item.bgColor} rounded-xl shadow-lg flex-col items-center justify-center text-center mx-2`}
             >
-              <img src={item.img} alt="icon" className="w-12 h-12 mb-2" />
-              <p className="text-sm font-medium">{item.title} <span className="font-bold">{item.highlight}</span></p>
+              <img src={item.img} alt="icon" className="w-16 h-16 mb-3" />
+              <p className="text-base font-medium text-gray-700">
+                {item.title} <span className="font-bold text-gray-900">{item.highlight}</span>
+              </p>
             </div>
           ))}
         </div>
       </div>
-      <div className="flex mt-4 space-x-4">
-        <button onClick={prevSlide} className="p-2 bg-gray-200 rounded-full hover:bg-gray-300">
-          <ChevronLeft size={20} />
+
+      {/* Navigation Buttons */}
+      <div className="flex mt-6 space-x-6">
+        <button onClick={prevSlide} className="p-3 bg-gray-300 rounded-full hover:bg-gray-400 transition">
+          <ChevronLeft size={24} />
         </button>
-        <button onClick={nextSlide} className="p-2 bg-gray-200 rounded-full hover:bg-gray-300">
-          <ChevronRight size={20} />
+        <button onClick={nextSlide} className="p-3 bg-gray-300 rounded-full hover:bg-gray-400 transition">
+          <ChevronRight size={24} />
         </button>
+      </div>
+
+      {/* Dot Indicators */}
+      <div className="flex mt-4 space-x-2">
+        {carouselItems.map((_, index) => (
+          <div
+            key={index}
+            className={`w-3 h-3 rounded-full ${
+              index === currentIndex ? "bg-gray-800" : "bg-gray-400"
+            } transition`}
+          ></div>
+        ))}
       </div>
     </div>
   );
 }
 
 export default Carousel;
+
