@@ -1,5 +1,6 @@
 import React from "react";
 import Coursel from "../components/coursole";
+import { FaPlane, FaTrain, FaBus, FaHotel } from "react-icons/fa";
 
 const destinations = [
   {
@@ -42,11 +43,11 @@ const destinations = [
 
 const DestinationCard = ({ destination }) => {
   return (
-    <div className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105">
+    <div className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105 w-72 h-48">
       <img
         src={destination.imageUrl}
         alt={destination.name}
-        className="w-full h-48 object-cover"
+        className="w-full h-32 object-cover"
       />
       <div className="p-4">
         <h3 className="text-lg font-semibold">{destination.name}</h3>
@@ -91,7 +92,7 @@ const AboutSection = () => {
 
 const Home = () => {
   return (
-    <div>
+    <div className="font-poppins">
       <WelcomeSection />
       <Coursel />
       <div className="container mx-auto p-4">
