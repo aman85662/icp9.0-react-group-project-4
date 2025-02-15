@@ -1,6 +1,5 @@
 import React from "react";
 import Coursel from "../components/coursole";
-import { FaPlane, FaTrain, FaBus, FaHotel } from "react-icons/fa";
 
 const destinations = [
   {
