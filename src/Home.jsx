@@ -60,10 +60,12 @@ const DestinationCard = ({ destination }) => {
 
 const WelcomeSection = () => {
   return (
-    <section className="bg-blue-500 text-white py-12">
+    <section className="bg-blue-500 text-white py-12 md:py-16 lg:py-20">
       <div className="container mx-auto px-4 text-center">
-        <h1 className="text-5xl font-bold mb-4">Welcome to Track and Go</h1>
-        <p className="text-lg mb-6">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+          Welcome to Track and Go
+        </h1>
+        <p className="text-base md:text-lg lg:text-xl mb-6">
           Your one-stop solution for all your travel needs. Plan, book, and manage your trips with ease.
         </p>
       </div>
