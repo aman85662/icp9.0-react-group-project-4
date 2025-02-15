@@ -6,37 +6,37 @@ const destinations = [
     name: "New Delhi",
     state: "Delhi",
     properties: 4688,
-    imageUrl: "path/to/newdelhi.jpg",
+    imageUrl: "https://i.ytimg.com/vi/JW1jSINTzaw/maxresdefault.jpg",
   },
   {
     name: "Mumbai",
     state: "Maharashtra",
     properties: 1766,
-    imageUrl: "path/to/mumbai.jpg",
+    imageUrl: "https://images.saymedia-content.com/.image/ar_16:9%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:eco%2Cw_1200/MjAzNzI4MDY1Nzg2ODE2Mjg4/things-to-do-in-mumbai.jpg",
   },
   {
     name: "Goa",
     state: "Goa",
     properties: 4728,
-    imageUrl: "path/to/goa.jpg",
+    imageUrl: "https://hotel.hardrock.com/goa/files/6021/23578312_ImageLargeWidth.jpg",
   },
   {
     name: "Chennai",
     state: "Tamil Nadu",
     properties: 1401,
-    imageUrl: "path/to/chennai.jpg",
+    imageUrl: "https://www.thomascook.in/blog/wp-content/uploads/2019/05/img-7-e1531194581524.jpg",
   },
   {
     name: "Kolkata",
     state: "West Bengal",
     properties: 968,
-    imageUrl: "path/to/kolkata.jpg",
+    imageUrl: "https://images.squarespace-cdn.com/content/v1/51a39504e4b093105c265c24/1536533414626-8F6T2DZFJY6L0SZRT2R6/victoria-memorial-reflected.jpg",
   },
   {
     name: "Hyderabad",
     state: "Telangana",
     properties: 1527,
-    imageUrl: "path/to/hyderabad.jpg",
+    imageUrl: "https://media.cntraveller.in/wp-content/uploads/2019/04/Hyderabad-Lead-1366x768.jpg",
   },
 ];
 
@@ -96,7 +96,7 @@ const Home = () => {
       <Coursel />
       <div className="container mx-auto p-4">
         <h1 className="text-3xl font-semibold mb-4">Popular Destinations</h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="flex flex-wrap justify-around -mx-4 -mb-4">
           {destinations.map((destination) => (
             <DestinationCard key={destination.name} destination={destination} />
           ))}
