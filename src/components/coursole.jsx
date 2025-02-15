@@ -3,20 +3,20 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const carouselItems = [
   {
-    img: "https://images.ixigo.com/image/upload/trains/trains/6d151c1fd7008b79f5f6b51b934bfb71-ztjll.webp",
+    img: "./coursole/refund.webp",
     title: "Instant & full refunds",
     highlight: "with Assured",
     bgColor: "bg-blue-100",
   },
   {
-    img: "/path-to-icon2.svg",
-    title: "Save up to 40% with",
-    highlight: "intelligent fare alerts",
+    img: "/coursol/free-cancellation.webp",
+    title: "Free-Cancilation",
+    highlight: "fare alerts",
     bgColor: "bg-yellow-100",
   },
   {
-    img: "/path-to-icon3.svg",
-    title: "Track flight delays,",
+    img: "/coursole/IRCTC-partner.webp",
+    title: "Track train delays,",
     highlight: "boarding gate & baggage belt",
     bgColor: "bg-purple-100",
   },
@@ -27,9 +27,9 @@ const carouselItems = [
     bgColor: "bg-orange-100",
   },
   {
-    img: "/path-to-icon5.svg",
+    img: "/coursole/lowest-fares.webp",
     title: "Lowest fares",
-    highlight: "with ixigo",
+    highlight: "with Track & Go",
     bgColor: "bg-pink-100",
   },
 ];
