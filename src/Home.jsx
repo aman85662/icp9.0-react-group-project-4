@@ -1,5 +1,5 @@
 import React from "react";
-import Coursel from "../components/coursole"; 
+import Coursel from "../components/coursole";
 
 const destinations = [
   {
@@ -57,6 +57,19 @@ const DestinationCard = ({ destination }) => {
   );
 };
 
+const WelcomeSection = () => {
+  return (
+    <section className="bg-blue-500 text-white py-12">
+      <div className="container mx-auto px-4 text-center">
+        <h1 className="text-5xl font-bold mb-4">Welcome to Track and Go</h1>
+        <p className="text-lg mb-6">
+          Your one-stop solution for all your travel needs. Plan, book, and manage your trips with ease.
+        </p>
+      </div>
+    </section>
+  );
+};
+
 const AboutSection = () => {
   return (
     <section className="bg-gray-100 py-12">
@@ -79,8 +92,8 @@ const AboutSection = () => {
 const Home = () => {
   return (
     <div>
-      <h1 className="text-8xl"></h1>
-      <Coursel/>
+      <WelcomeSection />
+      <Coursel />
       <div className="container mx-auto p-4">
         <h1 className="text-3xl font-semibold mb-4">Popular Destinations</h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
