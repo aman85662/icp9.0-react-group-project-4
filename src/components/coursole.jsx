@@ -34,8 +34,7 @@ const carouselItems = [
   },
 ];
 
-
-function Carousel()  {
+function Carousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const prevSlide = () => {
@@ -49,13 +48,13 @@ function Carousel()  {
   return (
     <div className="w-full flex flex-col items-center py-6">
       <h2 className="text-lg md:text-xl font-semibold mb-4">Why Book With ixigo?</h2>
-      <div className="relative w-full max-w-4xl overflow-hidden">
+      <div className="relative w-full max-w-6xl overflow-hidden">
         <div className="flex transition-transform duration-500 ease-in-out"
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
           {carouselItems.map((item, index) => (
             <div
               key={index}
-              className={`flex flex-shrink-0 w-full md:w-1/3 lg:w-1/5 p-4 ${item.bgColor} rounded-lg shadow-md flex-col items-center justify-center text-center mx-2`}
+              className={`flex flex-shrink-0 w-full md:w-1/3 lg:w-1/4 xl:w-1/5 p-4 ${item.bgColor} rounded-lg shadow-md flex-col items-center justify-center text-center mx-2`}
             >
               <img src={item.img} alt="icon" className="w-12 h-12 mb-2" />
               <p className="text-sm font-medium">{item.title} <span className="font-bold">{item.highlight}</span></p>
@@ -74,6 +73,5 @@ function Carousel()  {
     </div>
   );
 }
-
 
 export default Carousel;
